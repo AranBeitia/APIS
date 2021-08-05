@@ -37,6 +37,23 @@ function exercise04() {
   // Make sure to return the axios.get() method call
   //
   // return axios.get()...
+
+  return axios
+    .get('https://jsonplaceholder.typicode.com/posts?_limit=6')
+    .then(response => {
+      const data = response.data
+
+      data.forEach(post => {
+        let html = `
+         <div class="post">
+           <p class="post__title">${post.title}</p>
+           <p>${post.body}</p>
+         </div>
+        `
+        document.querySelector('.ex4-container').innerHTML += html
+      })
+    })
+
 }
 
 export default exercise04;

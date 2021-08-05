@@ -14,6 +14,13 @@ import $ from "jquery";
  */
 function exercise01() {
   // Complete the code of the function
+  let request = new XMLHttpRequest()
+  request.onload = () => document.getElementById('data').textContent = request.response
+  request.open('GET', 'https://jsonplaceholder.typicode.com/posts?_limit=20')
+  request.send()
+
+  request.error = () => document.getElementById('data').textContent = 'The request has failed'
 }
 
+exercise01()
 export default exercise01;

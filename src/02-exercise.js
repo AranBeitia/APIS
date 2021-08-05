@@ -17,6 +17,9 @@ import $ from "jquery";
 
 function exercise02() {
   // Complete the code of the function
+  $.get('https://jsonplaceholder.typicode.com/users/1/', (data) => {
+    $('#data').html(JSON.stringify(data, null, 2))
+  } )
 }
-
+exercise02()
 export default exercise02;
